@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ApitryController
 {
-  public function alice()
+  public function index()
   {
-    echo 'called alice()<br>';
-    return 'alice';
+    return 'Controller index';
   }
 
-  public function bob()
+  public function show(Request $request, string $id)
   {
-    echo 'called bob()<br>';
-    return 'bob';
+    return response()->json(['id' => 1]);
   }
 }

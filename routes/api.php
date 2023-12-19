@@ -19,10 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(ApitryController::class)->group(function () {
-    Route::get('/char', 'alice');
-    Route::get('/char', 'bob');
-});
+Route::get('/users', [ApitryController::class, 'index']);
 
-Route::get('/char', [ApitryController::class, 'alice']);
-Route::get('/char', [ApitryController::class, 'bob']);
+Route::controller(ApitryController::class)->group(function () {
+    Route::get('/users/{id}', 'show');
+});
